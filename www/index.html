@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Casper File Server</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>📂 Casper File Server :]</h1>
+            <p class="subtitle">Upload and download files locally or globally through your network</p>
+
+        </header>
+
+        <section class="box upload-box" id="uploadBox">
+            <h2>Upload a File</h2>
+            <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+                <label for="fileInput" class="custom-file-input">SELECT FILE …</label>
+                <input type="file" id="fileInput" name="file" required />
+                <span id="fileName" class="file-name">No file selected</span>
+                <button type="submit">UPLOAD →</button>
+                <p id="maxSizeDisplay" class="max-size">Max upload size: -- MB</p>
+            </form>
+
+            <div id="progressContainer" class="progress-container hidden">
+                <div id="progressBar" class="progress-bar"></div>
+            </div>
+            <p id="progressText" class="progress-text hidden">Uploading...</p>
+            <p class="hint hidden">Drag and drop files here</p>
+        </section>
+
+        <section class="box files-box">
+            <h2>Available Files</h2>
+            <ul id="fileList">Loading…</ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>Made by Casper AKA VexilonHacker</p>
+    </footer>
+
+    <script src="/index.js"></script>
+</body>
+
+</html>
