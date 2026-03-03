@@ -64,7 +64,7 @@ async function refreshFiles() {
     refreshLock = true;
 
     if (!fileListEl.children.length) {
-        fileListEl.innerHTML = '<li class="placeholder"><em>Loading…</em></li>';
+        fileListEl.innerHTML = '<li class="placehnewer"><em>Loading…</em></li>';
     }
 
     try {
@@ -117,9 +117,9 @@ async function refreshFiles() {
             }
         }
 
-        // remove placeholders
-        const placeholders = fileListEl.querySelectorAll('li.placeholder');
-        placeholders.forEach(p => p.remove());
+        // remove placehnewers
+        const placehnewers = fileListEl.querySelectorAll('li.placehnewer');
+        placehnewers.forEach(p => p.remove());
 
     } catch (err) {
         console.error('refreshFiles', err);
