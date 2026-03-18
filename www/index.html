@@ -2,48 +2,95 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <title>Casper File Server</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="/style.css" />
+	<meta charset="utf-8" />
+	<title>OverShare /ᐠ - ˕ -マ </title>
+	<link rel="icon" type="image/png" href="/cat.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="/style.css" />
+	<script src="https://unpkg.com/qr-code-styling@1.6.0/lib/qr-code-styling.js"></script>
 </head>
 
 <body>
-    <div class="container">
-        <header>
-            <h1>📂 Casper File Server :]</h1>
-            <p class="subtitle">Upload and download files locally or globally through your network</p>
+	<div class="container">
+		<header>
+			<h1>OverShare File Server /ᐠ - ˕ -マ </h1>
+			<p class="subtitle">Upload and download files locally or globally through your network</p>
+		</header>
 
-        </header>
+		<section class="box upload-box" id="uploadBox">
+			<h2>Upload a File</h2>
+			<form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+				<label for="fileInput" class="custom-file-input">SELECT FILE …</label>
+				<input type="file" id="fileInput" name="file" required />
+				<span id="fileName" class="file-name">No file selected</span>
+				<button type="submit">UPLOAD →</button>
+				<p id="maxSizeDisplay" class="max-size">Max upload size: -- MB</p>
+			</form>
+			<div id="progressContainer" class="progress-container hidden">
+				<div id="progressBar" class="progress-bar"></div>
+			</div>
+			<p id="progressText" class="progress-text hidden">Uploading...</p>
+			<p class="hint hidden">Drag and drop files here</p>
+		</section>
 
-        <section class="box upload-box" id="uploadBox">
-            <h2>Upload a File</h2>
-            <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
-                <label for="fileInput" class="custom-file-input">SELECT FILE …</label>
-                <input type="file" id="fileInput" name="file" required />
-                <span id="fileName" class="file-name">No file selected</span>
-                <button type="submit">UPLOAD →</button>
-                <p id="maxSizeDisplay" class="max-size">Max upload size: -- MB</p>
-            </form>
+		<section class="box files-box">
+			<h2>Available Files</h2>
+			<br>
+			<div class="files-header">
+				<div class="search-container">
+					<input type="text" id="fileSearch" class="search-input"
+						placeholder="🔍 Search files by name..." />
+					<span class="search-clear" id="searchClear">✕</span>
+				</div>
+				<button id="selectFilesBtn" class="select-files-btn">Select files</button>
+			</div>
 
-            <div id="progressContainer" class="progress-container hidden">
-                <div id="progressBar" class="progress-bar"></div>
-            </div>
-            <p id="progressText" class="progress-text hidden">Uploading...</p>
-            <p class="hint hidden">Drag and drop files here</p>
-        </section>
+			<div id="selectionBar" class="selection-bar hidden">
+				<div class="selection-controls">
+					<label class="checkbox-label">
+						<input type="checkbox" id="selectAllCheckbox">
+						<span>Select All</span>
+					</label>
+					<span id="selectedCount" class="selected-count">0 selected</span>
+				</div>
+				<div class="selection-actions">
+					<button id="downloadSelectedBtn" class="zip-download-btn" disabled>
+						<svg class="zip-icon" viewBox="0 0 24 24" fill="none"
+							stroke="currentColor" stroke-width="2">
+							<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+							<polyline points="7 10 12 15 17 10" />
+							<line x1="12" y1="15" x2="12" y2="3" />
+							<rect x="3" y="18" width="18" height="2" rx="1" />
+						</svg>
+						<span>Download selected as ZIP</span>
+					</button>
+					<button id="cancelSelectionBtn" class="cancel-selection-btn">✕</button>
+				</div>
+			</div>
 
-        <section class="box files-box">
-            <h2>Available Files</h2>
-            <ul id="fileList">Loading…</ul>
-        </section>
-    </div>
+			<ul id="fileList">Loading…</ul>
+		</section>
 
-    <footer>
-        <p>Made by Casper AKA VexilonHacker</p>
-    </footer>
+		<div id="qrModal" class="qr-modal">
+			<div class="qr-modal-content">
+				<span class="qr-modal-close">&times;</span>
+				<h3 id="qrModalTitle">QR Code</h3>
+				<div id="qrModalImage" class="qr-image-container"></div>
+			</div>
+		</div>
+	</div> <!-- This closes the container div -->
 
-    <script src="/index.js"></script>
+	<footer class="footer">
+		<div class="footer-copyright">
+			Made with <span class="heart">❤️</span> by
+			<a href="https://github.com/VexilonHacker" class="author-link" target="_blank" rel="noopener">
+				<i class="fab fa-github"></i> VexilonHacker
+			</a>
+			/ᐠ - ˕ -マ
+		</div>
+	</footer>
+
+	<script src="/index.js"></script>
 </body>
 
 </html>

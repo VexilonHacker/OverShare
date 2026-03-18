@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>OverShare • Simple File Transfer</title>
+	<meta name="description" content="Simple one-time file transfer">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="oneshot.css">
+</head>
+
+<body>
+	<div class="container">
+		<div class="bg-grid"></div>
+		<div class="bg-glow"></div>
+
+		<nav class="navbar">
+			<div class="nav-brand">
+				<span class="brand-emoji">📂</span>
+				<span class="brand-text">OverShare File Server /ᐠ - ˕ -マ</span>
+			</div>
+		</nav>
+
+		<div class="brand-subtitle">Secure one-time file transfer</div>
+		<main class="main-content">
+			<div class="card" id="transferCard">
+				<div class="status-section">
+					<div class="status-ring" id="statusRing">
+						<svg viewBox="0 0 100 100">
+							<circle class="ring-bg" cx="50" cy="50" r="45" />
+							<circle class="ring-progress" cx="50" cy="50" r="45"
+								id="progressRing" />
+						</svg>
+						<div class="status-badge" id="statusBadge">
+							<span class="badge-text" id="badgeText">READY</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="file-section">
+					<div class="file-icon animate-float">📄</div>
+					<div class="file-details">
+						<h1 class="file-name" id="fileName">{{.FileName}}</h1>
+						<div class="file-meta">
+							<span class="file-size" id="fileSize">{{.FileSize}}</span>
+							<span class="meta-separator">•</span>
+							<span class="file-type">One-time transfer</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="action-section">
+					<a href="?download=1" class="download-btn" id="downloadBtn">
+						<span class="btn-content">
+							<svg class="btn-icon" viewBox="0 0 24 24" fill="none"
+								stroke="currentColor" stroke-width="2">
+								<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+								<polyline points="7 10 12 15 17 10" />
+								<line x1="12" y1="15" x2="12" y2="3" />
+							</svg>
+							<span class="btn-text" id="btnText">Download File</span>
+						</span>
+						<span class="btn-progress" id="btnProgress"></span>
+					</a>
+				</div>
+
+				<div class="notice" id="notice">
+					<div class="notice-icon">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+							stroke-width="2">
+							<circle cx="12" cy="12" r="10" />
+							<line x1="12" y1="12" x2="12" y2="16" />
+							<line x1="12" y1="8" x2="12.01" y2="8" />
+						</svg>
+					</div>
+					<div class="notice-message" id="noticeMessage">
+						This file will expire immediately after download
+					</div>
+				</div>
+
+				<div class="expired-overlay" id="expiredOverlay">
+					<div class="expired-content">
+						<svg class="expired-icon" viewBox="0 0 24 24" fill="none"
+							stroke="currentColor" stroke-width="2">
+							<circle cx="12" cy="12" r="10" />
+							<line x1="12" y1="8" x2="12" y2="12" />
+							<line x1="12" y1="16" x2="12.01" y2="16" />
+						</svg>
+						<h2>Transfer Expired</h2>
+						<p>This file has reached its download limit and is no longer available
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<footer class="footer">
+				<div class="footer-copyright">
+					Made with <span class="heart">❤️</span> by
+					<a href="https://github.com/VexilonHacker" class="author-link" target="_blank"
+						rel="noopener">
+						<i class="fab fa-github"></i> VexilonHacker
+					</a>
+				</div>
+			</footer>
+		</main>
+	</div>
+	<script src="oneshot.js"></script>
+</body>
+
+</html>
