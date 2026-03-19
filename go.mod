@@ -1,13 +1,15 @@
-module overshare
+module github.com/VexilonHacker/OverShare
 
 go 1.26.1
 
-require github.com/skip2/go-qrcode v0.0.0-20200617195104-da1b6568686e
+require (
+	github.com/skip2/go-qrcode v0.0.0-20200617195104-da1b6568686e
+	github.com/spf13/pflag v1.0.10
+)
 
 require (
 	github.com/hashicorp/mdns v1.0.6 // indirect
 	github.com/miekg/dns v1.1.55 // indirect
-	github.com/spf13/pflag v1.0.10 // indirect
 	golang.org/x/mod v0.17.0 // indirect
 	golang.org/x/net v0.34.0 // indirect
 	golang.org/x/sync v0.10.0 // indirect
