@@ -1,5 +1,5 @@
-.gitignore
 /builds/
+release-notes.md
 overshare
 overshare.exe
 *.exe
